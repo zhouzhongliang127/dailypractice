@@ -1,7 +1,7 @@
 package leetcode;
 
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * @author zzl
@@ -18,7 +18,7 @@ public class Jump_Game_II {
         {
             int maxPos = 0;
             for (int i = start ; i <= end; i++) {
-                maxPos = Math.max(maxPos,nums[i]+i);
+                maxPos = Math.max(maxPos,nums[i] + i);
             }
             start = end+1;
             end = maxPos;
