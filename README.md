@@ -1,7 +1,4 @@
 # dailypractice
 Algorithm
 
-some test changes
-main change
-dev change
-
+main 02 change
