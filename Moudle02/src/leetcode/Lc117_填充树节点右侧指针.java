@@ -1,11 +1,10 @@
 package leetcode;
 
 
-import java.io.BufferedReader;
+import 算法课程实践.树.TreeNode;
+import 算法课程实践.树.TreeUtils;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * @author zzl
@@ -33,72 +32,7 @@ class Node {
 };
 public class Lc117_填充树节点右侧指针 {
 
-    public static Node stringToTreeNode(String input) {
-        input = input.trim();
-        input = input.substring(1, input.length() - 1);
-        if (input.length() == 0) {
-            return null;
-        }
 
-        String[] parts = input.split(",");
-        String item = parts[0];
-        Node root = new Node(Integer.parseInt(item));
-        Queue<Node> nodeQueue = new LinkedList<>();
-        nodeQueue.add(root);
-
-        int index = 1;
-        while(!nodeQueue.isEmpty()) {
-            Node node = nodeQueue.remove();
-
-            if (index == parts.length) {
-                break;
-            }
-
-            item = parts[index++];
-            item = item.trim();
-            if (!item.equals("null")) {
-                int leftNumber = Integer.parseInt(item);
-                node.left = new Node(leftNumber);
-                nodeQueue.add(node.left);
-            }
-
-            if (index == parts.length) {
-                break;
-            }
-
-            item = parts[index++];
-            item = item.trim();
-            if (!item.equals("null")) {
-                int rightNumber = Integer.parseInt(item);
-                node.right = new Node(rightNumber);
-                nodeQueue.add(node.right);
-            }
-        }
-        return root;
-    }
-
-    public static String treeNodeToString(Node root) {
-        if (root == null) {
-            return "[]";
-        }
-
-        String output = "";
-        Queue<Node> nodeQueue = new LinkedList<>();
-        nodeQueue.add(root);
-        while(!nodeQueue.isEmpty()) {
-            Node node = nodeQueue.remove();
-
-            if (node == null) {
-                output += "null, ";
-                continue;
-            }
-
-            output += String.valueOf(node.val) + ", ";
-            nodeQueue.add(node.left);
-            nodeQueue.add(node.right);
-        }
-        return "[" + output.substring(0, output.length() - 2) + "]";
-    }
 
     public static Node connect(Node root) {
         if(root == null){
@@ -138,16 +72,6 @@ public class Lc117_填充树节点右侧指针 {
         return root;
     }
     public static void main(String[] args) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        String line;
-        while ((line = in.readLine()) != null) {
-            Node root = stringToTreeNode(line);
-
-            Node ret = connect(root);
-
-            String out = treeNodeToString(ret);
-
-            System.out.print(out);
-        }
+        TreeNode treeNode = TreeUtils.stringToTreeNode("[1,2,3,4,5]");
     }
 }

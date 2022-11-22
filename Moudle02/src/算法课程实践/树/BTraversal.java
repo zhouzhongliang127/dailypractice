@@ -1,4 +1,4 @@
-package 算法课程实践.二叉树;
+package 算法课程实践.树;
 
 import java.util.*;
 
