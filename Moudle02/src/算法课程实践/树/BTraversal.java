@@ -8,14 +8,14 @@ import java.util.*;
  * @date 2022/8/31 - 12:03
  */
 public class BTraversal {
-    public static void preOrderUnRecur(Node head){
+    public static void preOrderUnRecur(TreeNode head){
         System.out.println("pre-order:");
         if(head != null){
-            Stack<Node> stack = new Stack<>();
+            Stack<TreeNode> stack = new Stack<>();
             stack.add(head);
             while(!stack.isEmpty()){
                  head = stack.pop();
-                System.out.print(head.val + ' ');
+                System.out.print(head.val + " ");
                 if(head.right != null){
                     stack.push(head.right);
                 }
@@ -27,11 +27,11 @@ public class BTraversal {
         System.out.println();
     }
 
-    public static void postOrderUnRecur1(Node head){
+    public static void postOrderUnRecur1(TreeNode head){
         System.out.println("post-order:");
         if(head != null){
-            Stack<Node> stack1 = new Stack<>();
-            Stack<Node> stack2 = new Stack<>();
+            Stack<TreeNode> stack1 = new Stack<>();
+            Stack<TreeNode> stack2 = new Stack<>();
             stack1.push(head);
             while(!stack1.isEmpty()){
                 head = stack1.pop();
@@ -50,10 +50,10 @@ public class BTraversal {
         }
     }
 
-    public static void inOrderUnRecur(Node head){
+    public static void inOrderUnRecur(TreeNode head){
         System.out.println("in-order:");
         if(head != null){
-            Stack<Node> stack = new Stack<>();
+            Stack<TreeNode> stack = new Stack<>();
             while(!stack.isEmpty() || head != null){
                 while(head != null){
                     stack.push(head);
@@ -64,6 +64,7 @@ public class BTraversal {
                 head = head.right;
             }
         }
+        System.out.println();
     }
 
     public static void levelOrder(Node head){
@@ -183,7 +184,7 @@ public class BTraversal {
 
     /**
      * 功能描述: <br>
-     * <是否平衡二叉树>
+     * <是否搜索二叉树>
      * @param root 树的根节点
      * @Return: boolean
      * @Author: zzl
@@ -221,7 +222,7 @@ public class BTraversal {
 
     /**
      * 功能描述: <br>
-     * <判断是否平衡二叉树——递归>
+     * <判断是否搜索二叉树——递归>
      * @param root
      * @Return: boolean
      * @Author: zzl
