@@ -34,8 +34,8 @@ public class 位运算比较两数大小 {
     }
 
     public static void main(String[] args) {
-        int a = -1;
-        int b = 20;
+        int a = Integer.MIN_VALUE;
+        int b = Integer.MAX_VALUE;
 
         System.out.println(compare(a, b));
 
